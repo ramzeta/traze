@@ -1,0 +1,50 @@
+{
+    "info": {
+      "name": "CQRS - Trazabilidad Microservicios",
+      "_postman_id": "a3ed00de-1a11-46e7-b0ef-5555c0c1f501",
+      "description": "Prueba comandos y consultas del sistema CQRS con FastAPI y RabbitMQ",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "1. POST - Ejecutar acción (Producer)",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"mensaje\": \"Hola CQRS desde Postman\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/acciones",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8000",
+            "path": ["acciones"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "2. GET - Obtener trazas (Consumer)",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8001/traces",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8001",
+            "path": ["traces"]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  
